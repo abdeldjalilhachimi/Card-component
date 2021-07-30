@@ -11,52 +11,100 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 15px;
-  height: 100vh;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
   background-color: #090b1a;
 }
 
 /* Start Card */
-.card {
-  overflow: hidden;
-  border-radius: 13px;
-  width: 100%;
+.container {
+  max-width: 85rem;
+  padding: 2rem;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap-reverse;
-      flex-wrap: wrap-reverse;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100vh;
+}
+
+.container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background-color: #1b1938;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-radius: 15px;
+  height: 446px;
 }
 
-.card__contnet {
-  padding: 3rem;
+.container .card__img {
+  position: relative;
 }
 
-.card__contnet .card__title h1 {
+.container .card__img--overaly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(170, 92, 219, 0.5);
+  border-radius: 0 15px 15px 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+
+.container .card__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 15px 15px 0 !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container .card__contnet {
+  padding: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  height: auto;
+}
+
+.container .card__contnet .card__title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.container .card__contnet .card__title h1 {
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
 }
 
-.card__contnet .card__title h1 span {
+.container .card__contnet .card__title h1 span {
   color: #aa5cdb;
 }
 
-.card__contnet .card__pragraph p {
+.container .card__contnet .card__pragraph {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.container .card__contnet .card__pragraph p {
   color: rgba(255, 255, 255, 0.75);
   text-align: left;
   max-width: 500px;
@@ -64,7 +112,11 @@ body {
   font-family: "Lexend Deca", sans-serif;
 }
 
-.card__contnet .card__statictics {
+.container .card__contnet .card__statictics {
+  width: 100%;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,49 +127,103 @@ body {
   -webkit-box-pack: space-evenly !important;
       -ms-flex-pack: space-evenly !important;
           justify-content: space-evenly !important;
-  margin-bottom: 0 !important;
 }
 
-.card__contnet .card__statictics .card__static {
+.container .card__contnet .card__statictics .card__static {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   text-align: center;
 }
 
-.card__contnet .card__statictics .card__static h3 {
+.container .card__contnet .card__statictics .card__static h3 {
   font-size: 2rem;
   color: white;
   margin-bottom: 0 !important;
   font-family: "Inter", sans-serif;
 }
 
-.card__contnet .card__statictics .card__static p {
+.container .card__contnet .card__statictics .card__static p {
   color: rgba(255, 255, 255, 0.6);
   font-family: "Lexend Deca", sans-serif;
   font-size: 1rem;
   text-transform: uppercase;
 }
 
-.card__img {
-  position: relative;
-  max-height: 446px;
+@media screen and (max-width: 960px) {
+  .container {
+    margin-top: -50px;
+    height: 100vh;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .card {
+    position: relative;
+    height: 92vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .container .card__title h1 {
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 2.4rem !important;
+    font-weight: 700;
+  }
+  .container .card__title h1 span {
+    color: #aa5cdb;
+  }
+  .container .card__pragraph {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .container .card__pragraph p {
+    color: rgba(255, 255, 255, 0.75);
+    text-align: left;
+    max-width: 500px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    font-family: "Lexend Deca", sans-serif;
+  }
+  .container .card__img {
+    position: relative;
+    /*  flex: 2; */
+  }
+  .container .card__img--overaly {
+    border-radius: 15px 15px 0 0 !important;
+  }
+  .container .card__img img {
+    border-radius: 15px 15px 0 0 !important;
+  }
+  .container .card .card__statictics {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute !important;
+        justify-content: space-around !important;
+  }
+  .container .card .card__statictics .card__static {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+  .container .card .card__statictics .card__static h3 {
+    font-size: 1rem;
+  }
+  .container .card .card__statictics .card__static p {
+    font-size: 0.5rem;
+  }
 }
-
-.card__img .card__img--overly {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(170, 92, 219, 0.5);
-  z-index: 10;
-}
-
-.card__img img {
-  height: auto;
-  border-radius: 0 15px 15px 0;
-}
-
-/* End Card  */
 /*# sourceMappingURL=main.css.map */
